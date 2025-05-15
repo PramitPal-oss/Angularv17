@@ -1,0 +1,85 @@
+<div>
+  <h1 class="text-xl font-mono font-semibold text-center text-black mb-4">
+    Observable in Angular
+  </h1>
+
+  <div class="mb-3">
+    <p-button label="Get More Data" [raised]="true" severity="contrast" size="small" (click)="onHanleClick()"
+      [loading]="isLoading.dynamic" />
+  </div>
+
+  <div class="flex flex-row gap-3 items-center flex-wrap">
+    <div *ngFor="let x of data.dynamic"
+      class="bg-gray-300 p-4 rounded-md mb-3 font-sans font-semibold text-base text-center transition-all duration-500 ease-out opacity-0 translate-y-3 animate-bounce-top">
+      {{x}}
+    </div>
+  </div>
+  <div class="font-mono font-semibold text-base mb-3" [ngClass]="classes.dynamic">{{message.dynamic}}</div>
+
+  <div class="mb-3">
+    <p-button label="Get Data" [raised]="true" severity="success" size="small" (click)="onHandlerSuccess()"
+      [loading]="isLoading.static" />
+  </div>
+
+  <div class="flex flex-row gap-3 items-center flex-wrap">
+    <div *ngFor="let x of data.static"
+      class="bg-red-500 p-4 rounded-md mb-3 font-sans font-semibold text-base text-center transition-all duration-500 ease-out opacity-0 translate-y-3 animate-bounce-top text-white">
+      {{x}}
+    </div>
+  </div>
+  <div class="font-mono font-semibold text-base mb-3" [ngClass]="classes.static">{{message.static}}</div>
+
+
+  <div class="mb-3">
+    <p-button label="Get Of Data" [raised]="true" severity="info" size="small" (click)="onOfHandler()"
+      [loading]="isLoading.of" />
+  </div>
+
+  <div class="flex flex-row gap-3 items-center flex-wrap">
+    <div *ngFor="let x of data.of"
+      class="bg-violet-600 p-4 rounded-md mb-3 font-sans font-semibold text-base text-center transition-all duration-500 ease-out opacity-0 translate-y-3 animate-fade-in text-white">
+      {{x | json}}
+    </div>
+  </div>
+  <div class="font-mono font-semibold text-base mb-3" [ngClass]="classes.of">{{message.of}}</div>
+
+  <div class="mb-3">
+    <p-button label="Get Form Data" [raised]="true" severity="warning" size="small" (click)="onFormHandler()"
+      [loading]="isLoading.form" />
+  </div>
+
+  <div class="flex flex-row gap-3 items-center flex-wrap">
+    <div *ngFor="let x of data.form"
+      class="bg-amber-600 p-4 rounded-md mb-3 font-sans font-semibold text-base text-center transition-all duration-500 ease-out opacity-0 translate-y-3 animate-fade-in text-white">
+      {{x}}
+    </div>
+  </div>
+  <div class="font-mono font-semibold text-base mb-3" [ngClass]="classes.form">{{message.form}}</div>
+
+  <div class="mb-3">
+    <button
+      class="p-2 bg-lime-600 text-white font-sans font-bold rounded-md text-base border border-solid border-lime-600 shadow-lg text-center cursor-pointer"
+      #clickedEvent>Add Form Data</button>
+  </div>
+  <div class="flex flex-row gap-3 items-center flex-wrap">
+    <div *ngFor="let x of data.fromEvent"
+      class="bg-cyan-600 p-4 rounded-md mb-3 font-sans font-semibold text-base text-center transition-all duration-500 ease-out opacity-0 translate-y-3 animate-fade-in text-white">
+      {{x}}
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <p-button label="Get Form Data" [raised]="true" severity="danger" size="small" (click)="onnewObservableHandler()"
+      [loading]="isLoading.mapFilterEvent" />
+  </div>
+
+  <div class="flex flex-row gap-3 items-center flex-wrap">
+    <div *ngFor="let x of data.mapFilterEvent"
+      class="bg-amber-600 p-4 rounded-md mb-3 font-sans font-semibold text-base text-center transition-all duration-500 ease-out opacity-0 translate-y-3 animate-fade-in text-white">
+      {{x}}
+    </div>
+  </div>
+  <div class="font-mono font-semibold text-base mb-3" [ngClass]="classes.mapFilterEvent">{{message.mapFilterEvent}}
+  </div>
+
+</div>

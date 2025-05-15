@@ -1,0 +1,42 @@
+<div class="flex flex-row items-center justify-center gap-2 mb-2 mt-2">
+  <p-button label="Increase" [raised]="true" severity="contrast" size="small" (click)="onHanleClick()" />
+  <p-button [label]="display ? 'Hide' : 'Show'" [raised]="true" severity="secondary" size="small"
+    (click)="getDisplay()" />
+</div>
+
+<app-show-result></app-show-result>
+
+<p class="font-sans font-semibold text-base">Click the increse count button a few times. Then click the show button and
+  observe the difference in count value!</p>
+
+<app-show-result *ngIf="display"></app-show-result>
+
+<p class="font-sans font-semibold text-base">More Examples on Subject</p>
+
+<div class="flex flex-row gap-3">
+  <p class="font-mono font-semibold text-sm m-0">Subscriber 1 : </p>
+  <p class="font-sans font-semibold text-xs text-red-500  m-0">{{subjectcount.count1 | json }}</p>
+</div>
+
+<div class="flex flex-row gap-3">
+  <p class="font-mono font-semibold text-sm m-0">Subscriber 2 : </p>
+  <p class="font-sans font-semibold text-xs text-red-500  m-0">{{subjectcount.count2 | json}}</p>
+</div>
+
+<div class="flex flex-row gap-3">
+  <p class="font-mono font-semibold text-sm m-0">Subscriber 3 : </p>
+  <p class="font-sans font-semibold text-xs text-red-500  m-0">{{subjectcount.count3 | json}}</p>
+</div>
+
+<div class="flex flex-row gap-3">
+  <p class="font-mono font-semibold text-sm m-0">Behaviour Subscriber 1 : </p>
+  <p class="font-sans font-semibold text-xs text-red-500  m-0">{{subjectcount.behaviour1| json}}</p>
+</div>
+<div class="flex flex-row gap-3">
+  <p class="font-mono font-semibold text-sm m-0">Behaviour Subscriber 2 : </p>
+  <p class="font-sans font-semibold text-xs text-red-500  m-0">{{subjectcount.behavioure2| json}}</p>
+</div>
+<div class="flex flex-row gap-3">
+  <p class="font-mono font-semibold text-sm m-0">Behaviour Subscriber 3 : </p>
+  <p class="font-sans font-semibold text-xs text-red-500  m-0">{{subjectcount.behaviour3| json}}</p>
+</div>

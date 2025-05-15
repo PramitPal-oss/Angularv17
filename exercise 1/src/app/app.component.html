@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-4">
+  <ng-container *ngFor="let course of courseCards">
+    <app-card [cards]="course" (onCardClickHandler)="onCardClick($event)"></app-card>
+  </ng-container>
+</div>

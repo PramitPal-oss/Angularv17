@@ -1,0 +1,94 @@
+<div class="flex flex-col gap-6">
+  <form novalidate #regForm="ngForm" (ngSubmit)="onSubmit()"
+    class="p-4 flex bg-white gap-3 shadow-md rounded-md flex-col">
+
+    <div class="flex gap-2">
+      <div class="flex flex-col gap-2 w-full">
+        <label for="fname" class="font-sans font-semibold">First Name</label>
+
+        <input pInputText id="fname" aria-describedby="fname-help" name="fname" placeholder="enter your first Name"
+          ngModel #fname="ngModel" pattern="^[A-Za-z]{2,}$" required class="placeholder:font-sans placeholder:text-base"
+          [ngClass]="getInputClasses(fname)" />
+
+        <small id="fname-help" class="text-gray-500 font-sans" *ngIf="!fname.touched">
+          Enter your first name.
+        </small>
+
+        <div *ngIf="fname.invalid && fname.touched">
+          <small *ngIf="fname.errors?.['required']" class="text-red-500 font-sans font-semibold">First name is
+            required.</small>
+          <small *ngIf="fname.errors?.['pattern']" class="text-red-500 font-sans font-semibold">Only letters, minimum 2
+            characters.</small>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2 w-full">
+        <label for="lname" class="font-sans font-semibold">Last Name</label>
+
+        <input pInputText id="lname" aria-describedby="lname-help" name="lname" placeholder="enter your last Name"
+          ngModel #lname="ngModel" pattern="^[A-Za-z]{2,}$" required class="placeholder:font-sans placeholder:text-base"
+          [ngClass]="getInputClasses(lname)" />
+
+        <small id="lname-help" class="text-gray-500 font-sans" *ngIf="!lname.touched">
+          Enter your Last name.
+        </small>
+
+        <div *ngIf="lname.invalid && lname.touched">
+          <small *ngIf="lname.errors?.['required']" class="text-red-500 font-sans font-semibold">Last name is
+            required.</small>
+          <small *ngIf="lname.errors?.['pattern']" class="text-red-500 font-sans font-semibold">Only letters, minimum 2
+            characters.</small>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex gap-2">
+      <div class="flex flex-col gap-2 w-full">
+        <label for="email" class="font-sans font-semibold">Email</label>
+
+        <input pInputText id="email" aria-describedby="email-help" name="email" placeholder="enter your email" ngModel
+          #email="ngModel" email required type="email" class="placeholder:font-sans placeholder:text-base"
+          [ngClass]="getInputClasses(email)" />
+
+        <small id="email-help" class="text-gray-500 font-sans" *ngIf="!email.touched">
+          Enter your valid email address.
+        </small>
+
+        <div *ngIf="email.invalid && email.touched">
+          <small *ngIf="email.errors?.['required']" class="text-red-500 font-sans font-semibold">Email is
+            required.</small>
+          <small *ngIf="email.errors?.['email']" class="text-red-500 font-sans font-semibold">Enter a Valid email
+            Address</small>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col gap-2 w-full">
+
+        <label for="withoutgrouping" class="font-sans font-semibold">Phone Number</label>
+
+        <input mode="decimal" inputId="withoutgrouping" type="number" name="phnumber"
+          placeholder="enter your phone number" ngModel #phnumber="ngModel" pattern="^[0-9]{10}$" required pInputText
+          class="placeholder:font-sans placeholder:text-base" [ngClass]="getInputClasses(phnumber)" />
+
+        <small id="email-help" class="text-gray-500 font-sans" *ngIf="!phnumber.touched">
+          Enter your valid phone number.
+        </small>
+
+        <div *ngIf="phnumber.invalid && phnumber.touched">
+          <small *ngIf="phnumber.errors?.['required']" class="text-red-500 font-sans font-semibold">Phone Number is
+            required.</small>
+          <small *ngIf="phnumber.errors?.['pattern']" class="text-red-500 font-sans font-semibold">Need 10 digit for
+            phone number</small>
+        </div>
+
+      </div>
+    </div>
+
+    <p-button type="submit" size="small" raised="true" [disabled]="regForm.invalid">Submit</p-button>
+
+  </form>
+
+  <app-table></app-table>
+</div>

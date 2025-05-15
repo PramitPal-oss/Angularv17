@@ -1,0 +1,9 @@
+<div class="flex items-center justify-center p-5">
+  <app-tab-container>
+
+    <ng-container *ngFor="let tab of tabDetails">
+      <app-tab-component [title]="tab.title" [body]="tab.description"></app-tab-component>
+    </ng-container>
+
+  </app-tab-container>
+</div>
